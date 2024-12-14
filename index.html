@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Management Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://i.ibb.co/PMYBwY4/mediafusion-logo.png" alt="Media Fusion Logo" style="height:80px; width:150px;" />
+        </div>
+        <nav>
+    <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#analytics">Analytics</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+    </ul>
+</nav>
+
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Managing multiple social media accounts is challenging for businesses and individuals. This tool consolidates account management, allowing users to schedule posts, track engagement, and analyze performance metrics. Integration with platforms like Facebook, Instagram, and Twitter streamlines workflows. AI-driven analytics provide insights into audience behavior and content trends, while collaboration features enable teams to assign tasks and review content drafts. Notifications alert users to important interactions or scheduled posts. Role-based access ensures secure handling of sensitive account data, and customizable dashboards highlight KPIs like follower growth and engagement rates.</p>
+        </section>
+
+
+        <section id="features">
+            <h2>Features</h2>
+            <div class="features-container">
+                <div class="feature">
+                    <h3>Schedule Posts</h3>
+                    <form id="schedule-form">
+                        <label for="platform">Select Platform:</label>
+<div id="platform">
+    <label>
+        <input type="checkbox" name="platform" value="facebook"> Facebook
+    </label>
+    <label>
+        <input type="checkbox" name="platform" value="instagram"> Instagram
+    </label>
+    <label>
+        <input type="checkbox" name="platform" value="whatsapp"> Whatsapp
+    </label>
+    <label>
+        <input type="checkbox" name="platform" value="linkedin"> LinkedIn
+    </label>
+</div>
+
+
+                        <label for="content">Post Content:</label>
+                        <textarea id="content" name="content" required></textarea>
+
+                        <label for="schedule-time">Schedule Time:</label>
+                        <input type="datetime-local" id="schedule-time" name="schedule-time" required>
+
+                        <button type="submit">Schedule Post</button>
+                    </form>
+                </div>
+                <div class="feature">
+                    <h3>Track Trends</h3>
+                    <p>Analyze engagement, audience growth, and trends for your posts across platforms.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="analytics">
+            <h2>Analytics Dashboard</h2>
+            <div id="analytics-data">
+                <canvas id="engagementChart"></canvas>
+                <div id="kpi-metrics">
+                    <p>Follower Growth: <span id="follower-growth">0%</span></p>
+                    <p>Engagement Rate: <span id="engagement-rate">0%</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="team">
+            <h2>Our Team</h2>
+            <p>We are a team of passionate developers, designers, and strategists dedicated to simplifying social media management. Our mission is to empower users with tools that save time, boost engagement, and provide actionable insights.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="contact-name">Name:</label>
+                <input type="text" id="contact-name" name="name" required>
+
+                <label for="contact-email">Email:</label>
+                <input type="email" id="contact-email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Social Media Management Tool. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+
+        // Sample data for chart
+        const engagementData = {
+            labels: ["Post 1", "Post 2", "Post 3", "Post 4", "Post 5"],
+            datasets: [{
+                label: "Engagement",
+                data: [10, 20, 15, 30, 25],
+                backgroundColor: "rgba(75, 192, 192, 0.2)",
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 1
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: engagementData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Post Engagement Metrics'
+                    }
+                }
+            }
+        };
+
+        const engagementChart = new Chart(
+            document.getElementById('engagementChart'),
+            config
+        );
+
+        // Update KPIs dynamically
+        const updateKPIs = (followerGrowth, engagementRate) => {
+            document.getElementById("follower-growth").textContent = `${followerGrowth}%`;
+            document.getElementById("engagement-rate").textContent = `${engagementRate}%`;
+        };
+
+        updateKPIs(12, 9);
+    </script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+/* CSS Variables */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #f1c40f;
+    --accent-color: #2ecc71;
+    --font-family: 'Open Sans', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+    --heading-size: 36px;
+    --paragraph-size: 18px;
+    --modal-width: 400px;
+    --padding-horizontal: 20px;
+    --gap-large: 40px;
+}
+
+/* Enhanced CSS for Login and Registration Pages */
+
+/* General Form Styling */
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: var(--heading-size);
+    margin-bottom: 20px;
+}
+
+form label {
+    font-weight: bold;
+    color: #333;
+}
+
+form input, form textarea, form select {
+    padding: 12px 15px;
+    font-size: var(--font-size-base);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+    outline: none;
+}
+
+form button {
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 12px;
+    font-size: var(--font-size-base);
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Form Container Styling */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #243949 0%, #517fa4 100%);
+    padding: 20px;
+}
+
+/* Add a decorative border for forms */
+form {
+    border: 2px solid var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    form {
+        padding: 20px;
+        max-width: 100%;
+    }
+}
+
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: var(--paragraph-size);
+    line-height: var(--line-height-base);
+    margin-bottom: 20px;
+}
+
+/* Header and Navigation */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    margin-right: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: var(--padding-horizontal);
+    display: grid;
+    gap: var(--gap-large);
+}
+
+section {
+    padding: 20px;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.features-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.features-container .feature {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--modal-width);
+    background-color: white;
+    padding: var(--padding-horizontal);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal.visible {
+    display: flex;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form input, form textarea, form select {
+    padding: 10px;
+    font-size: var(--font-size-base);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form button {
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    transition: box-shadow 0.3s;
+}
+
+form button:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn {
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, box-shadow 0.3s;
+    margin: 10px;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #0056b3, #0096ff);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Analytics Dashboard */
+#analytics-data {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+#kpi-metrics {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #kpi-metrics {
+        flex-direction: column;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .features-container {
+        grid-template-columns: 1fr;
+    }
+}
